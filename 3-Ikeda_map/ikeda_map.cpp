@@ -64,6 +64,9 @@ int main()
 
 // Here one uses MathGL for generate Graphics!
 
+    char parametros[100];
+    sprintf(parametros,"Ikeda Map a=%lfm, b=%lf, g=%lf, u=%lf",alfa,beta,gama,mu);
+    
     mglGraph *gr = new mglGraphZB;
 
 
@@ -75,9 +78,11 @@ int main()
 	gr->XRange(xdat);	gr->YRange(ydat); // for v.1.*
 //gr->SetRanges(xdat,ydat); // for v.2.*
 	gr->Box();
-
-	gr->Alpha(true);
+	
+	gr->Alpha(false);
 	gr->SetMarkSize(0.0005);
+	gr->Title("Ikeda Map");
+	gr->AddLegend(parametros,"b");
 	gr->Plot(xdat,ydat,"r#o "); 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     gr->WritePNG("ikeda-mgl.png");
