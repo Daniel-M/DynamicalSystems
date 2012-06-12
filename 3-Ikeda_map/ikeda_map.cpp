@@ -65,7 +65,19 @@ int main()
 // Here one uses MathGL for generate Graphics!
 
     char parametros[100];
-    sprintf(parametros,"Ikeda Map a=%lfm, b=%lf, g=%lf, u=%lf",alfa,beta,gama,mu);
+    char parametroa[20];
+    char parametrob[20];
+    char parametrog[20];
+    char parametrou[20];
+    char parametrop[30];
+    
+//     sprintf(parametros,"Ikeda Map Parameters\n a=%.3lfm\n b=%.3lf\n g=%.3lf\n u=%.3lf",alfa,beta,gama,mu);
+    	
+	sprintf(parametroa,"\\alpha = %.3lf",alfa);
+	sprintf(parametrob,"\\beta = %.3lf",beta);
+	sprintf(parametrog,"\\gamma = %.3lf",gamma);
+	sprintf(parametrou,"\\mu = %.3lf",mu);
+	sprintf(parametrop,"Points = %i",iterations);
     
     mglGraph *gr = new mglGraphZB;
 
@@ -80,12 +92,23 @@ int main()
 	gr->Box();
 	
 	gr->Alpha(false);
+	gr->Light(true);
 	gr->SetMarkSize(0.0005);
 	gr->Title("Ikeda Map");
-	gr->AddLegend(parametros,"b");
+	
+// 	gr->AddLegend(parametros,"b");
+	
+	gr->AddLegend(parametrou," ");
+	gr->AddLegend(parametrog," ");
+	gr->AddLegend(parametrob," ");
+	gr->AddLegend(parametroa," ");
+	gr->AddLegend(parametrop," ");
+	gr->AddLegend("Ikeda Map Parameters","");
+	gr->Legend(0,0,2.3);
+	
 	gr->Plot(xdat,ydat,"r#o "); 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    gr->WritePNG("ikeda-mgl.png");
+	gr->WritePNG("ikeda-mgl.png");
 	delete gr;
     return 0;
 /*	
