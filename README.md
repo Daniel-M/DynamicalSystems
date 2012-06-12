@@ -11,6 +11,8 @@ DynamicalSystems
 
 ##### TO DO:	
 * Put *cmake* capabilities instead of *makefiles*	
+* On ikeda-map.cpp just move _SubPlot  some lines up to get the legend on the right position.
+
 
 ##### EVENTS:  
 >* 16-MAY-2012	Repository created. First Commit of *1-logistic-map*, *2-julia-set* and *3-ikeda-map*
