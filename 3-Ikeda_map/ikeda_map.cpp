@@ -89,7 +89,7 @@ int main()
 	gr->Transparent=false;
 	gr->XRange(xdat);	gr->YRange(ydat); // for v.1.*
 //gr->SetRanges(xdat,ydat); // for v.2.*
-	gr->Box();
+
 	
 	gr->Alpha(false);
 	gr->Light(true);
@@ -98,17 +98,21 @@ int main()
 	
 // 	gr->AddLegend(parametros,"b");
 	
-	gr->AddLegend(parametrou," ");
+	gr->AddLegend(parametrou," "); // Adding legend tags.
 	gr->AddLegend(parametrog," ");
 	gr->AddLegend(parametrob," ");
 	gr->AddLegend(parametroa," ");
 	gr->AddLegend(parametrop," ");
 	gr->AddLegend("Ikeda Map Parameters","");
-	gr->Legend(0,0,2.3);
+	gr->Legend(0,0,2.3); //put the legend in 0,0, wiht font size 2.3
+	
+	gr->SubPlot(1,1,0,"^"); // Reserve aditional space only on the upper side  Default value is "<>_^" 
+	
+	gr->Box(); // The bounding box. Note that putting this on a line before SubPlot will give an unbounded graph (box undersized)
 	
 	gr->Plot(xdat,ydat,"r#o "); 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	gr->WritePNG("ikeda-mgl.png");
+	gr->WritePNG("ikeda-mgl.png","",false);
 	delete gr;
     return 0;
 /*	
