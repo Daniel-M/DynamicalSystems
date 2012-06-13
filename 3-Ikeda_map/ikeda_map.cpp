@@ -95,6 +95,8 @@ int main()
 	gr->Light(true);
 	gr->SetMarkSize(0.0005);
 	gr->Title("Ikeda Map");
+
+	gr->SubPlot(1,1,0,"^"); // Reserve aditional space only on the upper side  Default value is "<>_^" 
 	
 // 	gr->AddLegend(parametros,"b");
 	
@@ -106,7 +108,7 @@ int main()
 	gr->AddLegend("Ikeda Map Parameters","");
 	gr->Legend(0,0,2.3); //put the legend in 0,0, wiht font size 2.3
 	
-	gr->SubPlot(1,1,0,"^"); // Reserve aditional space only on the upper side  Default value is "<>_^" 
+//	gr->SubPlot(1,1,0,"^"); // Reserve aditional space only on the upper side  Default value is "<>_^" 
 	
 	gr->Box(); // The bounding box. Note that putting this on a line before SubPlot will give an unbounded graph (box undersized)
 	
